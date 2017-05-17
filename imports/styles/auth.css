@@ -1,0 +1,118 @@
+.auth{
+  margin: 0px;
+  margin-top: 25% !important;
+  background-color: transparent !important;
+}
+
+.signup{
+  padding-bottom: 100px;
+}
+
+.auth .auth-title{
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.auth .auth-title-line{
+  border-top: 3px solid #D82E7E;
+  max-width: 25px;
+  margin-bottom: 30px;
+  margin-left: 1px;
+}
+
+.auth .panel{
+  box-shadow: none;
+  border: 1px solid #E5E5E5;
+  background-color: #FFFFFF;
+  margin-top: 15px;
+  padding: 30px;
+  border-radius: 0px;
+}
+
+.auth label{
+  font-size: 13px;
+}
+
+.auth input{
+  background-color: #ffffff !important;
+  margin-bottom: 0px !important;
+  border-radius: 0px;
+  height: 40px;
+  box-shadow: none;
+  border: 1px solid #E5E5E5;
+  margin-top: 8px !important;
+}
+
+select{
+  background-color: transparent !important;
+  margin-bottom: 0px !important;
+  border-radius: 0px !important;
+  height: 40px;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+  max-width: 98%;
+  margin-top: 2px !important;
+}
+
+select:focus{
+  box-shadow: none !important;;
+  outline: none !important;
+}
+
+.select-enclosure{
+  border: 1px solid #E5E5E5;
+  padding: 0px !important;
+  margin-top: 8px !important;
+  height: 40px;
+}
+
+.auth button{
+  font-size: 13px;
+  margin-top: 20px !important;
+  margin-bottom: 0px !important;
+  height: 40px;
+  border-radius: 0px;
+  background: #50CACA !important;
+  border: none;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.auth button:focus{
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+
+.auth button:hover{
+  opacity: 0.9;
+
+}
+
+.auth .createAccount {
+  text-align: center;
+}
+
+.auth .createAccount a{
+  font-size: 13px;
+  text-decoration: none;
+  color: #121315;
+  cursor: pointer;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #919192;
+}
+
+.auth .forgottenPasswordLink{
+  font-size: 12px;
+  margin-bottom: -7px !important;
+  margin-top: 0px !important;
+
+}
+
+.auth .forgottenPasswordLink a{
+  text-decoration: none;
+  color: #9E9F9F;
+  cursor: pointer;
+}

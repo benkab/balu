@@ -1,0 +1,49 @@
+.menu{
+	background: #ffffff;
+	padding: 1%;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border: 1px solid #DEDFDF !important;
+	position: absolute;
+	z-index: 99999999;
+	min-width: 250px;
+	height: 300px;
+	right: 10px;
+	top: 55px;
+	border-radius: 0px;
+}
+
+.menu .small-arrow{
+	position: fixed;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 10px 10px 10px;
+	border-color: transparent transparent #DEDFDF transparent;
+	right: 28px;
+	top: 45px !important;
+}
+
+.menu ul{
+	padding: 0px;
+	margin: 0px;
+}
+
+.menu ul li{
+	list-style: none;
+	display: block;
+	margin-bottom: 20px;
+}
+
+.menu ul li a{
+	text-decoration: none;
+	color: #1D1E1E;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.menu ul li a.active{
+	color: #864FC8;
+	font-weight: bold;
+}
+

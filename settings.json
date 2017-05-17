@@ -1,0 +1,7 @@
+{
+  "galaxy.meteor.com": {
+     "env": {
+       "MONGO_URL": "mongodb://balutrading2017:Papa_balu1@ds143241.mlab.com:43241/balu_db"
+     }
+   }
+}

@@ -1,0 +1,13 @@
+/* CSS declarations go here */
+body, html{
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Monda', sans-serif !important;
+  background-color: #F3F3F3 !important;
+  font-size: 13px;
+  height: 100%;
+}
+
+.row{
+  margin: 0px !important;
+}
