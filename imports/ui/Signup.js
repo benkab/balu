@@ -43,7 +43,6 @@ class Signup extends TrackerReact(Component) {
         this.refs.password.value = '';
         this.refs.email.value = '';
         this.refs.branch.value = '';
-        browserHistory.push('/');
       }
     });
   }
@@ -124,9 +123,6 @@ class Signup extends TrackerReact(Component) {
                   </form>
                 </div>
               </div>
-              <p className="createAccount">
-                <Link to='/'>Connexion</Link>
-              </p>
             </div>
           </div>
         </div>

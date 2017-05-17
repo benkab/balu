@@ -14,8 +14,8 @@ import TransferCreate from '../imports/ui/TransferCreate';
 import { Provider } from 'react-redux';
 import store from './../imports/store';
 
-const unauthenticatedPages = ['/', '/signup'];
-const authenticatedPages = ['/home', '/transfers', '/transfers/create', '/paiements'];
+const unauthenticatedPages = ['/'];
+const authenticatedPages = ['/home', '/transfers', '/transfers/create', '/paiements', '/signup'];
 const onEnterPublicPage = () => {
   if(Meteor.userId()){
   	browserHistory.replace('/home');

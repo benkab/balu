@@ -59,9 +59,6 @@ class Signin extends Component {
                   </form>
                 </div>
               </div>
-              <p className="createAccount">
-                <Link to='/signup'>Créer un compte</Link>
-              </p>
             </div>
           </div>
         </div>
