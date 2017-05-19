@@ -11,6 +11,7 @@ import { toggleMenuState } from './../store/actions/menuActions';
 import { toggleNotificationState } from './../store/actions/notificationActions';
 import { Session } from 'meteor/session';
 import Notifications from './../api/Notification';
+import Spinner from 'react-spinner-material';
 
 class Navigation extends TrackerReact(Component) {
 
@@ -24,7 +25,7 @@ class Navigation extends TrackerReact(Component) {
   componentDidMount(){
     Meteor.setTimeout(() => {
       this.setState({user: Meteor.user().profile})
-    }, 400);
+    }, 600);
   } 
 
   toggleMenu(event){
@@ -61,6 +62,10 @@ class Navigation extends TrackerReact(Component) {
             </ul>
           </div>
           <ul className="pull-right right-menu">
+            {
+              !this.state.user &&
+              <small>Chargement...</small>
+            }
             {
               this.state.user &&
               <li className="names" onClick={this.navigationToProfile.bind(this)}>{this.state.user.firstname} {this.state.user.lastname}</li>

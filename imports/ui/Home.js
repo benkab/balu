@@ -9,20 +9,23 @@ import User from './User';
 import Menu from './Menu';
 import Header from './Header';
 import Icon from 'react-ionicons';
+import Spinner from 'react-spinner-material';
 
 class Home extends TrackerReact(Component) {
 
   constructor() {
     super();
     this.state = {
-      isAdmin: null
+      isAdmin: null,
+      hasReachedTimeout: false
     }
   }
 
   componentDidMount(){
     Meteor.setTimeout(() => {
       this.setState({isAdmin: Meteor.user().profile.isAdmin})
-    }, 400);
+      this.setState({hasReachedTimeout: true})
+    }, 1000);
   }
 
   navigationToTransfers(){
@@ -90,7 +93,17 @@ class Home extends TrackerReact(Component) {
           </div>
           <hr />
           {
-            this.state.isAdmin &&
+            (!this.state.isAdmin && !this.state.hasReachedTimeout) &&
+            <div className="col-sm-12">
+             <Spinner width={50}
+                height={50}
+                spinnerColor={"#4B4949"}
+                spinnerWidth={2}
+                show={true} />
+            </div>
+          }
+          {
+            (this.state.isAdmin && this.state.hasReachedTimeout) &&
             <div>
               <div className="col-lg-3 col-md-3 col-sm-12">
                 <Branch />
