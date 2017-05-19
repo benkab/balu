@@ -18,13 +18,15 @@ import store from './../imports/store';
 
 import Notifications from '../imports/api/Notification';
 
-const unauthenticatedPages = ['/'];
+const unauthenticatedPages = [
+  '/', 
+  '/signup'
+];
 const authenticatedPages = [
   '/home', 
   '/transfers', 
   '/transfers/create', 
-  '/paiements', 
-  '/signup',
+  '/paiements',
   '/profile'
 ];
 const onEnterPublicPage = () => {
@@ -42,7 +44,7 @@ const routes = (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Signin} onEnter={onEnterPublicPage}/>
-      <Route path="/signup" component={Signup} onEnter={onEnterPrivatePage}/>
+      <Route path="/signup" component={Signup} onEnter={onEnterPublicPage}/>
       <Route path="/home" component={Home} onEnter={onEnterPrivatePage}/>
       <Route path="/transfers" component={Transfer} onEnter={onEnterPrivatePage}/>
       <Route path="/paiements" component={Paiement} onEnter={onEnterPrivatePage}/>

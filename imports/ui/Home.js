@@ -22,7 +22,7 @@ class Home extends TrackerReact(Component) {
   componentDidMount(){
     Meteor.setTimeout(() => {
       this.setState({isAdmin: Meteor.user().profile.isAdmin})
-    }, 200);
+    }, 400);
   }
 
   navigationToTransfers(){

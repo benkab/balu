@@ -24,7 +24,7 @@ class Navigation extends TrackerReact(Component) {
   componentDidMount(){
     Meteor.setTimeout(() => {
       this.setState({user: Meteor.user().profile})
-    }, 200);
+    }, 400);
   } 
 
   toggleMenu(event){
