@@ -2,7 +2,7 @@
   "name": "Discussion",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor"
   },
   "dependencies": {
     "babel-runtime": "^6.23.0",
