@@ -19,15 +19,15 @@ import store from './../imports/store';
 import Notifications from '../imports/api/Notification';
 
 const unauthenticatedPages = [
-  '/', 
-  '/signup'
+  '/'
 ];
 const authenticatedPages = [
   '/home', 
   '/transfers', 
   '/transfers/create', 
   '/paiements',
-  '/profile'
+  '/profile', 
+  '/signup'
 ];
 const onEnterPublicPage = () => {
   if(Meteor.userId()){
@@ -44,7 +44,7 @@ const routes = (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Signin} onEnter={onEnterPublicPage}/>
-      <Route path="/signup" component={Signup} onEnter={onEnterPublicPage}/>
+      <Route path="/signup" component={Signup} onEnter={onEnterPrivatePage}/>
       <Route path="/home" component={Home} onEnter={onEnterPrivatePage}/>
       <Route path="/transfers" component={Transfer} onEnter={onEnterPrivatePage}/>
       <Route path="/paiements" component={Paiement} onEnter={onEnterPrivatePage}/>
