@@ -22,12 +22,6 @@ class Navigation extends TrackerReact(Component) {
     }
   }
 
-  componentDidMount(){
-    Meteor.setTimeout(() => {
-      this.setState({user: Meteor.user().profile})
-    }, 600);
-  } 
-
   toggleMenu(event){
     event.preventDefault();
     this.props.toggleMenuState(this.props.menuIsDiplayed.menuIsDiplayed);
@@ -62,14 +56,9 @@ class Navigation extends TrackerReact(Component) {
             </ul>
           </div>
           <ul className="pull-right right-menu">
-            {
-              !this.state.user &&
-              <small>Chargement...</small>
-            }
-            {
-              this.state.user &&
-              <li className="names" onClick={this.navigationToProfile.bind(this)}>{this.state.user.firstname} {this.state.user.lastname}</li>
-            }
+            <li className="names" onClick={this.navigationToProfile.bind(this)}>
+              <Icon icon="ion-person" fontSize="21px" color="#ffffff"/>
+            </li>
             <li>
               <a onClick={this.toggleMenu.bind(this)} className="ion-navicon-round">
                 <Icon icon="ion-navicon-round" fontSize="23px" color="#ffffff"/>

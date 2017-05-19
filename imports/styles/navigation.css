@@ -42,9 +42,8 @@
 
 .navigation ul.right-menu li.names{
 	position: absolute;
-	min-width: 100px;
-	right: 16px;
-	margin-top: 3px;
+	right: 33px;
+	margin-top: 1px;
 	cursor: pointer;
 }
 
