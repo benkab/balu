@@ -27,6 +27,17 @@ a, button {
   padding-bottom: 50px;
 }
 
+.home .home-page-link{
+  border: 1px solid #DEDFDF !important;
+  background: #F6F6F6 !important;
+  cursor: pointer;
+}
+
+.home .home-page-link:hover{
+  background: #F1F1F1 !important;
+}
+
+
 .home .home-title{
   font-weight: bold;
   margin-bottom: 20px;
@@ -37,6 +48,13 @@ a, button {
   border-top: 3px solid #D82E7E;
   max-width: 50px;
   margin-bottom: 30px;
+  margin-left: 1px;
+}
+
+.home .home-pages-title-line{
+  border-top: 3px solid #F75046 !important;
+  max-width: 50px;
+  margin-bottom: 20px !important;
   margin-left: 1px;
 }
 
@@ -56,6 +74,10 @@ a, button {
 .home .panel .panel-body{
   border-radius: 0px !important;
   padding: 30px;
+}
+
+.home .panel .branch-panel-body{
+  padding-top: 20px !important;
 }
 
 .home .panel-heading{
@@ -386,6 +408,10 @@ a, button {
   padding: 10px;
   padding-top: 20px;
   /*display: none;*/
+}
+
+.home .paiement-amount{
+  padding-top: 8px;
 }
 
 .home .paiement-panel span{

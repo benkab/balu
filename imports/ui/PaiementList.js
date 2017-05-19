@@ -15,7 +15,8 @@ class PaiementList extends TrackerReact(Component) {
       subscription : {
         paiements : Meteor.subscribe('paiements'),
         transfers : Meteor.subscribe('transfers'),
-        branches : Meteor.subscribe('branches')
+        branches : Meteor.subscribe('branches'),
+        users : Meteor.subscribe('users')
       }
     }
   }
@@ -25,6 +26,7 @@ class PaiementList extends TrackerReact(Component) {
     Meteor.subscribe('paiements').stop();
     Meteor.subscribe('transfers').stop();
     Meteor.subscribe('branches').stop();
+    Meteor.subscribe('users').stop();
   }
 
   paiements() {

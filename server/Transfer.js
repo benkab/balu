@@ -2,6 +2,7 @@ import Transfer from './../imports/api/Transfer';
 import User from './../imports/api/User';
 import Branch from './../imports/api/Branch';
 import Paiement from './../imports/api/Paiement';
+import Notification from './../imports/api/Notification';
 
 // Transfers
 Meteor.publish('transfers', function() {
@@ -46,13 +47,13 @@ Meteor.methods({
       item: addedTransfer._id
     });
 
-    // const addedTransfer = Transfer.findOne({code: code});
-
-    // Notification.insert({
-    //   type: 'Transfer',
-    //   item: addedTransfer._id,
-    //   read: false
-    // });
+    // Create a notication
+    Notification.insert({
+      type: 'Transfert',
+      item: addedTransfer._id,
+      read: false,
+      branch: transfer.branch
+    });
 
     Streamy.broadcast('notify', { data: transfer.branch });
     
@@ -89,6 +90,14 @@ Meteor.methods({
       amount: transfer.paiement,
       code: transfer.code,
       item: transfer.id
+    });
+
+    const notification = Notification.findOne({item: transfer.id})
+
+    Notification.update(notification._id, {
+      $set: {
+        read: true
+      }
     });
   }
 });

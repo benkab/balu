@@ -5,6 +5,7 @@ import menuReducer from './menuReducer';
 import userReducer from './userReducer';
 import navigationReducer from './navigationReducer';
 import transferReducer from './transferReducer';
+import notificationReducer from './notificationReducer';
 
 
 export default combineReducers({
@@ -12,5 +13,6 @@ export default combineReducers({
   menuReducer,
   userReducer,
   navigationReducer,
-  transferReducer
+  transferReducer,
+  notificationReducer
 });

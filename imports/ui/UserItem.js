@@ -6,7 +6,9 @@ import { connect } from 'react-redux';
 import Branches from './../api/Branch';
 import { 
   toggleUserEditMode,
-  setUser
+  setUser,
+  cancelUserDeleteMode,
+  toggleUserDeleteMode
 } from './../store/actions/userActions';
 import Icon from 'react-ionicons';
 
@@ -26,7 +28,8 @@ class UserItem extends Component {
 
   selectUser(event){
     event.preventDefault();
-    this.props.setUser(this.props.user)
+    this.props.setUser(this.props.user);
+    this.props.toggleUserDeleteMode(null);
   }
 
   showUserToEdit (event) {
@@ -86,7 +89,8 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
     toggleUserEditMode: toggleUserEditMode, 
-    setUser: setUser
+    setUser: setUser,
+    toggleUserDeleteMode: toggleUserDeleteMode
   }, dispatch)
 }
 

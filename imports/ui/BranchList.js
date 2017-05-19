@@ -27,12 +27,7 @@ export default class BranchList extends TrackerReact(Component) {
         <div className="panel-heading second-heading">
           Toutes les branches
         </div>
-        <div className="panel-body">
-          <div className="form-group">
-            <label htmlFor="description">Recherche</label>
-            <input type="text" className="form-control" id="search" name="search" />
-          </div>
-          <hr />
+        <div className="panel-body branch-panel-body">
           <ul>
            {this.branches().map( (branch) => {
              return <BranchItem key={branch._id} branch={branch} />

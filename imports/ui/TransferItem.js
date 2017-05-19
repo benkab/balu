@@ -65,7 +65,7 @@ class TransferItem extends TrackerReact(Component) {
       <div>
         {
           (((this.props.transfer.destination_branch === Meteor.user().profile.branch)
-                     || Meteor.user().profile.isAdmin )
+                     || Meteor.user().profile.isAdmin === true )
           && (this.props.transfer.amount !== this.props.transfer.amount_paid)) &&
           <div className="table-item row">
             <div className="col-lg-4 col-md-4 col-sm-4">

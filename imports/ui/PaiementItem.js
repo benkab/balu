@@ -5,6 +5,7 @@ import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import Icon from 'react-ionicons';
 import Transfers from './../api/Transfer';
 import Branches from './../api/Branch';
+import Users from './../api/User';
 import Moment from 'react-moment';
 import PDF from 'jspdf';
 
@@ -23,6 +24,7 @@ class PaiementItem extends TrackerReact(Component) {
       const transfer = Transfers.findOne({_id: this.props.paiement.item});
       const originBranch = Branches.findOne({_id: transfer.origine_branch});
       const destinationBranch = Branches.findOne({_id: transfer.destination_branch});
+      const user = Users.findOne({_id: transfer.user});
 
       const item = {
         _id: transfer._id,
@@ -35,7 +37,8 @@ class PaiementItem extends TrackerReact(Component) {
         receiver_lastname: transfer.receiver_lastname,
         receiver_telephone: transfer.receiver_telephone,
         amount: transfer.amount,
-        amount_paid: transfer.amount_paid
+        amount_paid: transfer.amount_paid,
+        user: user
       }
       this.setState({item: item})
     }
@@ -101,7 +104,6 @@ class PaiementItem extends TrackerReact(Component) {
                   <span>{this.state.item.destination}</span>
                 </div>
                 <div className="col-sm-12 paiement-amount">
-                  <br />
                   <p className="paiement-title">
                     <span><b>Details du transfert</b></span>
                   </p>
@@ -114,6 +116,12 @@ class PaiementItem extends TrackerReact(Component) {
                   <span>Reste à payer: <b>{this.state.item.amount - this.state.item.amount_paid} Dollars</b></span>
                   <br />
                 </div>
+                {
+                  this.state.item.user &&
+                  <div className="col-sm-12">
+                    <span>Par <b>{this.state.item.user.profile.firstname} {this.state.item.user.profile.lastname}</b></span>
+                  </div>
+                }
               </div>
             }
           </div>

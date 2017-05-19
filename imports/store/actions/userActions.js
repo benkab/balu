@@ -33,3 +33,21 @@ export function toggleUserEditMode(isEditingUser) {
     }
   }
 }
+
+export function cancelUserDeleteMode(isDeleting) {
+  return {
+    type: 'CANCELUSEREDELETEMODE',
+    payload: {
+      isDeleting: false
+    }
+  }
+}
+
+export function toggleUserDeleteMode(isDeleting) {
+  return {
+    type: 'TOGGLEUSEREDELETEMODE',
+    payload: {
+      isDeleting: true
+    }
+  }
+}

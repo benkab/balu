@@ -60,6 +60,7 @@ class UserInput extends Component {
     const branch = this.refs.branch.value.trim();
     const isAdmin = this.refs.role.value.trim();
 
+
     if(role === 'null'){
       this.setState({updateRole: true});
     } else if(branch === 'null'){

@@ -34,12 +34,7 @@ export default class UserList extends TrackerReact(Component) {
         <div className="panel-heading second-heading">
           Tous les agents
         </div>
-        <div className="panel-body">
-          <div className="form-group">
-            <label htmlFor="description">Recherche</label>
-            <input type="text" className="form-control" id="search" name="search" />
-          </div>
-          <hr />
+        <div className="panel-body branch-panel-body">
           <ul>
            {this.users().map( (user) => {
              return <UserItem key={user._id} user={user} />

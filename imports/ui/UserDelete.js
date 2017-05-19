@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setUserToDelete } from './../store/actions/userActions';
+import { setUser, cancelUserDeleteMode } from './../store/actions/userActions';
 
 class UserDelete extends TrackerReact(Component) {
 
@@ -13,18 +13,20 @@ class UserDelete extends TrackerReact(Component) {
 
   cancelDeletion (event){
   	event.preventDefault();
-  	this.props.setUserToDelete(null)
+  	this.props.setUser(null);
+    this.props.cancelUserDeleteMode(null)
   }
 
   deleteUser (event){
     event.preventDefault();
-    var id = this.props.selectedUser.branch;
+    var id = this.props.selectedUser.user._id;
     if(id){
       Meteor.call('deleteUser', id, (error)=> {
         if(error){
           console.log(error);
         } else {
-          this.props.setUserToDelete(null);
+          this.props.setUser(null);
+          this.props.cancelUserDeleteMode(null);
           Bert.alert('Cet agent a été supprimé', 'success');
         }
       });
@@ -32,11 +34,10 @@ class UserDelete extends TrackerReact(Component) {
   }
 
   render() {
-    
   	return (
       <div>
       {
-        (this.props.selectedUser.branch && !this.props.isDeleting.isDeleting) && 
+        (this.props.selectedUser && this.props.isDeleting.isDeleting) && 
         <div className="confirmDeletion">
           <p>Confirmez vous la suppression de cet agent?</p>
           <ul>
@@ -59,7 +60,10 @@ function mapStateToProps(state) {
 }
 
 function matchDispatchToProps(dispatch) {
-  return bindActionCreators({setUserToDelete: setUserToDelete}, dispatch)
+  return bindActionCreators({
+    setUser: setUser,
+    cancelUserDeleteMode: cancelUserDeleteMode
+  }, dispatch)
 }
 
 

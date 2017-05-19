@@ -1,7 +1,8 @@
 const initialState = {
   isAuth : null,
   user : null,
-  isEditingUser : false
+  isEditingUser : false,
+  isDeleting: false
 }
 
 export default userReducer = function(state=initialState, action) {
@@ -14,12 +15,24 @@ export default userReducer = function(state=initialState, action) {
   	  state = {...state, user: action.payload}
   	  break;
   	}
+    case "RESETUSER": {
+      state = {...state, user: action.payload}
+      break;
+    }
     case "CANCELUSEREDITMODE": {
       state = {...state, isEditingUser: action.payload}
       break;
     }
     case "TOGGLEUSEREDITMODE": {
       state = {...state, isEditingUser: action.payload}
+      break;
+    }
+    case "CANCELUSEREDELETEMODE": {
+      state = {...state, isDeleting: action.payload}
+      break;
+    }
+    case "TOGGLEUSEREDELETEMODE": {
+      state = {...state, isDeleting: action.payload}
       break;
     }
   }

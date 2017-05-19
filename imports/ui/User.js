@@ -19,6 +19,7 @@ class User extends TrackerReact(Component) {
       <div>
           <p className="home-title">Agents</p>
           <p className="home-branch-title-line home-user-title-line"></p>
+          <UserDelete/>
           {
             this.props.isEditingUser.isEditingUser &&
             <UserInput />
