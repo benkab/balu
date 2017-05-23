@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import UserInput from './UserInput';
 import UserList from './UserList';
 import UserDelete from './UserDelete';
+import Header from './Header';
+import Signup from './Signup';
 import './../styles/home.css';
 
 class User extends TrackerReact(Component) {
@@ -17,17 +19,19 @@ class User extends TrackerReact(Component) {
   render() {
   	return (
       <div>
-          <p className="home-title">Agents</p>
-          <p className="home-branch-title-line home-user-title-line"></p>
-          <UserDelete/>
-          {
-            this.props.isEditingUser.isEditingUser &&
-            <UserInput />
-          }
-          {
-            !this.props.isEditingUser.isEditingUser &&
+        <Header />
+        <div className="row home">
+          <div className="col-sm-12">
+            <p className="home-title">Users</p>
+            <p className="home-branch-title-line"></p>
+          </div>
+        </div>
+        <Signup />
+        <div className="row home">
+          <div className="col-sm-12">
             <UserList />
-          }
+          </div>
+        </div>
       </div>
   	)
   }

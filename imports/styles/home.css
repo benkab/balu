@@ -335,10 +335,9 @@ a, button {
 }
 
 .home .table-item .table-actions ul li{
-  display: block;
+  display: inline;
   list-style: none;
-  padding-right: 0px;
-  max-width: 85px;
+  padding-right: 40px;
 }
 
 .home .table-item .table-actions ul li a{
@@ -389,6 +388,22 @@ a, button {
 }
 
 .home .small-submit-btn:hover{
+  opacity: 0.9;
+}
+
+.home .small-cancel-btn{
+  padding: 0px 18px !important;
+  background: #BDBEBD !important;
+  color: #ffffff;
+  font-size: 12px;
+  border-radius: 0px;
+  text-decoration: none;
+  margin-top: 20px;
+  margin-left: 10px;
+  height: 32px !important;
+}
+
+.home .small-cancel-btn:hover{
   opacity: 0.9;
 }
 
@@ -444,3 +459,36 @@ a, button {
   cursor: pointer;
 }
 
+.home .user-item{
+  padding-bottom: 15px;
+  border-bottom: 1px solid #F3F3F3;
+  padding-top: 15px;
+  /*margin-left: -30px;*/
+}
+
+.home .user-item span{
+  font-size: 13px;
+}
+
+.home .user-item .first-column{
+  margin-left: -30px;
+}
+
+.home .user-item ul li{
+  margin-right: 35px;
+}
+
+.home .user-item ul li small{
+  position: absolute;
+  margin-top: 1px;
+}
+
+.home-signup{
+  margin-top: -80px !important;
+  /*padding-top: -50px !important;*/
+}
+
+.home-management{
+  margin-top: -80px !important;
+  /*padding-top: -50px !important;*/
+}

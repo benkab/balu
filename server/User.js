@@ -2,7 +2,6 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Mongo } from 'meteor/mongo';
 import User from './../imports/api/User';
-import Branch from './../imports/api/Branch';
 
 // Publications
 Meteor.publish('users', function() {
@@ -25,8 +24,7 @@ Meteor.methods({
           firstname: user.firstname,
           lastname: user.lastname,
           telephone: user.telephone,
-          isAdmin: true,
-          branch: user.branch
+          isAdmin: true
         }
       });
       Accounts.setPassword(createdUser, JSON.stringify(user.password));
@@ -37,8 +35,7 @@ Meteor.methods({
           firstname: user.firstname,
           lastname: user.lastname,
           telephone: user.telephone,
-          isAdmin: false,
-          branch: user.branch
+          isAdmin: false
         }
       });
       Accounts.setPassword(createdUser, JSON.stringify(user.password));
@@ -48,15 +45,13 @@ Meteor.methods({
     if(user.isAdmin === "true"){
       User.update(user.id, {
         $set: {
-          'profile.isAdmin': true,
-          'profile.branch': user.branch
+          'profile.isAdmin': true
         }
       });
     } else if (user.isAdmin === "false"){
       User.update(user.id, {
         $set: {
-          'profile.isAdmin': false,
-          'profile.branch': user.branch
+          'profile.isAdmin': false
         }
       });
     }

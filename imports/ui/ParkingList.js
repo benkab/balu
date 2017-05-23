@@ -2,45 +2,37 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Link } from 'react-router';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
-import TransferItem from './TransferItem';
-import Transfers from './../api/Transfer';
+import Parkings from './../api/Parking';
+import ParkingItem from './ParkingItem';
 
-class TransferList extends TrackerReact(Component) {
+class ParkingList extends TrackerReact(Component) {
 
   constructor() {
     super();
     this.state = {
-      subscription : {
-        users : Meteor.subscribe('users')
-      },
       filterTerm: null,
-      filteredTransfers: [] 
+      filtered_parkings: [] 
     }
   }
 
-  componentWillUnmount() {
-    this._renderComputation.stop();
-    Meteor.subscribe('users').stop();
-  }
-
-  filterTransfers(){
+  filterParkings(){
     const term = this.refs.search.value.trim();
     if(term){
       this.setState({filterTerm: term})
-      const transfers = Transfers.find(
-        {code: 
+      const parkings = Parkings.find(
+        {description: 
           { $regex: new RegExp("^" + term.toLowerCase(), "i") }
         }
       );
-      this.setState({filteredTransfers: transfers})
+      this.setState({filtered_parkings: parkings})
     } else {
       this.setState({filterTerm: null})
-      this.setState({filteredTransfers: []})
+      this.setState({filtered_parkings: []})
     }
   }
 
-  transfers() {
-    return Transfers.find().fetch();
+  parkings() {
+    return Parkings.find().fetch();
   } 
 
   render() {
@@ -49,30 +41,30 @@ class TransferList extends TrackerReact(Component) {
         <div className="panel-body">
           <div className="table-header row">
             <div className="col-lg-4 col-md-4 col-sm-12">
-              <p><b>Expediteur</b></p>
-            </div>
-            <div className="col-lg-4 col-md-4 col-sm-12">
-              <p><b>Destinateur</b></p>
+              <p><b>Description</b></p>
             </div>
             <div className="col-lg-3 col-md-3 col-sm-12">
-              <p><b>Details</b></p>
+              <p><b>Location</b></p>
             </div>
-            <div className="col-lg-1 col-md-1 col-sm-12">
+            <div className="col-lg-3 col-md-3 col-sm-12">
+              <p><b>Latitude</b></p>
+            </div>
+            <div className="col-lg-2 col-md-2 col-sm-12">
             </div>
           </div>
           {
             !this.state.filterTerm &&
              <div>
-               {this.transfers().map( (transfer) => {
-                  return <TransferItem key={transfer._id} transfer={transfer} />
+               {this.parkings().map( (parking) => {
+                  return <ParkingItem key={parking._id} parking={parking} />
                })}
              </div>
           }
           {
-            (this.state.filterTerm && this.state.filteredTransfers) &&
+            (this.state.filterTerm && this.state.filtered_parkings) &&
             <div>
-              {this.state.filteredTransfers.map( (transfer) => {
-                return <TransferItem key={transfer._id} transfer={transfer} />
+              {this.state.filtered_parkings.map( (parking) => {
+                return <ParkingItem key={parking._id} parking={parking} />
               })}
             </div>
           }
@@ -85,8 +77,8 @@ class TransferList extends TrackerReact(Component) {
                   id="search" 
                   ref="search" 
                   name="search" 
-                  placeholder="Recherche par code"
-                  onChange={this.filterTransfers.bind(this)} 
+                  placeholder="Search by description"
+                  onChange={this.filterParkings.bind(this)} 
                 />
               </div>
             </div>
@@ -98,4 +90,4 @@ class TransferList extends TrackerReact(Component) {
 
 }
 
-export default TransferList;
+export default ParkingList;

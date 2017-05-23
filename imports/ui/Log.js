@@ -3,9 +3,8 @@ import { render } from 'react-dom';
 import { Link, browserHistory } from 'react-router';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import Header from './Header';
-import PaiementList from './PaiementList';
 
-class Paiement extends TrackerReact(Component) {
+class Log extends TrackerReact(Component) {
 
   constructor() {
     super();
@@ -17,10 +16,10 @@ class Paiement extends TrackerReact(Component) {
         <Header />
         <div className="row home">
           <div className="col-sm-12">
-            <p className="home-title">Factures</p>
+            <p className="home-title">Logs</p>
             <p className="home-branch-title-line"></p>
           </div>
-          <PaiementList />
+          lorem ipsum
         </div>
       </div>
   	)
@@ -28,4 +27,4 @@ class Paiement extends TrackerReact(Component) {
 
 }
 
-export default Paiement;
+export default Log;

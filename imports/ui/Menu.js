@@ -6,7 +6,6 @@ import Icon from 'react-ionicons';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { closeMenuState } from './../store/actions/menuActions';
-import { closeNotificationState } from './../store/actions/notificationActions';
 import { Accounts } from 'meteor/accounts-base';
 
 class Menu extends Component {
@@ -18,39 +17,34 @@ class Menu extends Component {
   navigationToHome(){
     browserHistory.push('/home')
     this.props.closeMenuState(this.props.menuIsDiplayed.menuIsDiplayed);
-    this.props.closeNotificationState(this.props.notificationIsDiplayed.notificationIsDiplayed)
   }
 
-  navigationToTransfers(){
-    browserHistory.push('/transfers')
+  navigationToParkings(){
+    browserHistory.push('/parkings')
     this.props.closeMenuState(this.props.menuIsDiplayed.menuIsDiplayed);
-    this.props.closeNotificationState(this.props.notificationIsDiplayed.notificationIsDiplayed)
   }
 
-  navigationToPaiement(){
-    browserHistory.push('/paiements')
+  navigationToLogs(){
+    browserHistory.push('/logs')
     this.props.closeMenuState(this.props.menuIsDiplayed.menuIsDiplayed);
-    this.props.closeNotificationState(this.props.notificationIsDiplayed.notificationIsDiplayed)
   }
+
 
   navigationToSignUp(){
-    browserHistory.push('/signup')
+    browserHistory.push('/users')
     this.props.closeMenuState(this.props.menuIsDiplayed.menuIsDiplayed);
-    this.props.closeNotificationState(this.props.notificationIsDiplayed.notificationIsDiplayed)
   }
 
   navigationToProfile(){
     browserHistory.push('/profile')
     this.props.closeMenuState(this.props.menuIsDiplayed.menuIsDiplayed);
-    this.props.closeNotificationState(this.props.notificationIsDiplayed.notificationIsDiplayed)
   }
 
   onLogout(){
-    browserHistory.push('/')
-    Accounts.logout();
     this.props.closeMenuState(this.props.menuIsDiplayed.menuIsDiplayed);
+    Accounts.logout();  
   }
-
+  
   render() {
   	return (
   	  <div className="row menu">
@@ -63,29 +57,19 @@ class Menu extends Component {
                   Home
                 </a>
               </li>
-              <li onClick={this.navigationToTransfers.bind(this)}>
-                <a className={((browserHistory.getCurrentLocation().pathname ===  '/transfers') ? 'active' : '')}>
-                  Transferts
+              <li onClick={this.navigationToParkings.bind(this)}>
+                <a className={((browserHistory.getCurrentLocation().pathname ===  '/parkings') ? 'active' : '')}>
+                  Parkings
                 </a>
               </li>
-              <li>
-                <a>
-                  Frets
+              <li onClick={this.navigationToLogs.bind(this)}>
+                <a className={((browserHistory.getCurrentLocation().pathname ===  '/logs') ? 'active' : '')}>
+                  Logs
                 </a>
               </li>
               <li onClick={this.navigationToSignUp.bind(this)}>
-                <a className={((browserHistory.getCurrentLocation().pathname ===  '/signup') ? 'active' : '')}>
-                  Ajouter un agent
-                </a>
-              </li>
-              <li onClick={this.navigationToPaiement.bind(this)}>
-                <a className={((browserHistory.getCurrentLocation().pathname ===  '/paiements') ? 'active' : '')}>
-                  Factures
-                </a>
-              </li>
-              <li>
-                <a>
-                  Rapports
+                <a className={((browserHistory.getCurrentLocation().pathname ===  '/users') ? 'active' : '')}>
+                  Users
                 </a>
               </li>
               <li onClick={this.navigationToProfile.bind(this)}>
@@ -95,7 +79,7 @@ class Menu extends Component {
               </li>
               <li onClick={this.onLogout.bind(this)}>
                 <a>
-                  Deconnexion
+                  Sign out
                 </a>
               </li>
             </ul>
@@ -108,15 +92,13 @@ class Menu extends Component {
 
 function mapStateToProps(state) {
   return {
-    menuIsDiplayed :state.menuReducer,
-    notificationIsDiplayed: state.notificationReducer
+    menuIsDiplayed :state.menuReducer
   }
 }
 
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
-    closeMenuState: closeMenuState,
-    closeNotificationState: closeNotificationState
+    closeMenuState: closeMenuState
   }, dispatch)
 }
 

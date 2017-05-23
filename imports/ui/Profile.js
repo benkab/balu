@@ -58,7 +58,7 @@ class Profile extends TrackerReact(Component) {
         if(error){
           console.log(error);
         } else {
-          Bert.alert('Votre profile a été mis à jour', 'success');
+          Bert.alert('Your profile has been updated', 'success');
           this.refs.firstname.value = '';
           this.refs.lastname.value = '';
           this.refs.telephone.value = '';
@@ -94,7 +94,7 @@ class Profile extends TrackerReact(Component) {
         if(error){
           console.log(error);
         } else {
-          Bert.alert('Votre mot de passe a été reinitialisé', 'success');
+          Bert.alert('Your password has been updated', 'success');
           this.refs.password.value = '';
           this.refs.confirm_password.value = '';
           this.setState({password_state: false});
@@ -187,12 +187,12 @@ class Profile extends TrackerReact(Component) {
         <div className="row home">
           <div className="col-sm-12">
             <p className="home-title">
-              Profile
+              Your profile
               {
                 !this.state.user &&
                 <a 
                   className="pull-right create-section-button" 
-                  onClick={this.loadProfile.bind(this)}>Voir mon profile</a>
+                  onClick={this.loadProfile.bind(this)}>Display profile</a>
               }
             </p>
             <p className="home-branch-title-line"></p>
@@ -200,14 +200,14 @@ class Profile extends TrackerReact(Component) {
               this.state.user &&
               <div className="panel panel-default section-panel">
                 <div className="panel-heading second-heading">
-                  Mettre à jour le profil
+                  Update profile
                 </div>
                 <div className="panel-body">
                   <form className="new-user" onSubmit={this.updateProfile.bind(this)}>
                     <div className="section-form-row row">
                       <div className="col-lg-4 col-md-4 col-sm-12">
                         <div className="form-group">
-                          <label htmlFor="firstname">Prénom</label>
+                          <label htmlFor="firstname">Firstname</label>
                           <input 
                             type="text" 
                             className={'form-control ' + (this.state.firstname_state ? 'error-input' : '')} 
@@ -219,12 +219,12 @@ class Profile extends TrackerReact(Component) {
                         </div>
                         {
                           this.state.firstname_state &&
-                          <p className="error-message">Ce champ est obligatoire</p>
+                          <p className="error-message">This field is required</p>
                         }
                       </div>
                       <div className="col-lg-4 col-md-4 col-sm-12">
                         <div className="form-group">
-                          <label htmlFor="lastname">Nom</label>
+                          <label htmlFor="lastname">Lastname</label>
                           <input 
                             type="text" 
                             className={'form-control ' + (this.state.lastname_state ? 'error-input' : '')}
@@ -236,12 +236,12 @@ class Profile extends TrackerReact(Component) {
                         </div>
                         {
                           this.state.lastname_state &&
-                          <p className="error-message">Ce champ est obligatoire</p>
+                          <p className="error-message">This field is required</p>
                         }
                       </div>
                       <div className="col-lg-4 col-md-4 col-sm-12">
                         <div className="form-group">
-                          <label htmlFor="telephone">Telephone</label>
+                          <label htmlFor="telephone">Phone number</label>
                           <input 
                             type="text" 
                             className={'form-control ' + (this.state.telephone_state ? 'error-input' : '')}
@@ -253,7 +253,7 @@ class Profile extends TrackerReact(Component) {
                         </div>
                         {
                           (this.state.telephone_state || this.state.phone_number_match_state) &&
-                          <p className="error-message">Ce champ est obligatoire et doit container un numero valide</p>
+                          <p className="error-message">This field is required</p>
                         }
                       </div>
                     </div>
@@ -272,25 +272,25 @@ class Profile extends TrackerReact(Component) {
                         </div>
                         {
                           this.state.email_state &&
-                          <p className="error-message">Ce champ est obligatoire</p>
+                          <p className="error-message">This field is required</p>
                         }
                       </div>                        
                     </div>
-                    <button type="submit" className="small-submit-btn">Soumettre</button>
+                    <button type="submit" className="small-submit-btn">Submit</button>
                   </form>
                 </div>
               </div>
             }
             <div className="panel panel-default section-panel">
               <div className="panel-heading second-heading">
-                Changer le mot de passe
+                Reset password
               </div>
               <div className="panel-body">
                 <form className="new-user" onSubmit={this.updatePassword.bind(this)}>
                   <div className="section-form-row row">
                     <div className="col-lg-6 col-md-6 col-sm-12">
                       <div className="form-group">
-                        <label htmlFor="password">Nouveau mot de passe</label>
+                        <label htmlFor="password">New passport</label>
                         <input 
                           type="password" 
                           className={'form-control ' + (this.state.password_state ? 'error-input' : '')}
@@ -301,12 +301,12 @@ class Profile extends TrackerReact(Component) {
                       </div>
                       {
                         this.state.password_state &&
-                        <p className="error-message">Ce champ est obligatoire</p>
+                        <p className="error-message">This field is required</p>
                       }
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-12">
                       <div className="form-group">
-                        <label htmlFor="confirm_password">Confirmez le nouveau mot de passe</label>
+                        <label htmlFor="confirm_password">Confirm new passport</label>
                         <input 
                           type="password" 
                           className={'form-control ' + (this.state.confirm_password_state ? 'error-input' : '')}
@@ -317,11 +317,11 @@ class Profile extends TrackerReact(Component) {
                       </div>
                       {
                         this.state.confirm_password_state &&
-                        <p className="error-message">Ce champ etre identique au mot de passe</p>
+                        <p className="error-message">This field must match the new password field</p>
                       }
                     </div>
                   </div>
-                  <button type="submit" className="small-submit-btn">Soumettre</button>
+                  <button type="submit" className="small-submit-btn">Submit</button>
                 </form>
               </div>
             </div>

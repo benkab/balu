@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Branches from './../api/Branch';
 import { 
   cancelUserEditMode, 
   setUser

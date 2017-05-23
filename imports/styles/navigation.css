@@ -17,6 +17,23 @@
 	padding-top: 3px;
 }
 
+.navigation .logoLink{
+	text-decoration: none;
+	color: #ffffff;
+	cursor: pointer;
+	font-size: 17px;
+	font-weight: 700;
+	font-family: 'Josefin Sans', sans-serif !important;
+}
+
+.navigation .logoLink:hover{
+	opacity: 0.8;
+}
+
+.navigation .logoLink span{
+	color: #4DC2C0;
+}
+
 .navigation ul.left-menu{
 	padding: 0px;
 	margin: 0px;

@@ -1,31 +1,27 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
-// Payements
-const Paiement = new Mongo.Collection('paiements');
+// Parkings
+const Parking = new Mongo.Collection('parkings');
 
-Paiement.allow({
+Parking.allow({
   insert: () => true,
   update: () => true,
   remove: () => true
 });
 
-const PayementSchema = new SimpleSchema({
-  type: {
+const ParkingSchema = new SimpleSchema({
+  description: {
     type: String,
-    optional: false
+    optional: true
   },
-  item: {
+  latitude: {
+  	type: String,
+    optional: true
+  },
+  longitude: {
     type: String,
-    optional: false
-  },
-  code: {
-    type: String,
-    optional: false
-  },
-  amount: {
-    type: Number,
-    optional: false
+    optional: true
   },
   createdAt: {
   	type: Date,
@@ -47,6 +43,6 @@ const PayementSchema = new SimpleSchema({
   }
 });
 
-Paiement.attachSchema(PayementSchema);
+Parking.attachSchema(ParkingSchema);
 
-export default Paiement;
+export default Parking;

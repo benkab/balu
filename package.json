@@ -13,6 +13,7 @@
     "prop-types": "^15.5.10",
     "react": "^15.5.0",
     "react-addons-pure-render-mixin": "^15.5.2",
+    "react-avatar": "^2.3.0",
     "react-dom": "^15.5.0",
     "react-ionicons": "^1.5.7",
     "react-moment": "^0.2.2",

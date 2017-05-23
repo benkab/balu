@@ -52,9 +52,9 @@ class Signin extends Component {
     else {
       Meteor.loginWithPassword(user.email, JSON.stringify(user.password), (error) => {
         if(error){
-          Bert.alert('Connexion refusée avec ces données', 'danger');
+          Bert.alert('Authentication failed', 'danger');
         } else {
-          Bert.alert('Vous etes maintenant connecté', 'success');
+          Bert.alert('You are now authenticated', 'success');
           this.refs.password.value = '';
           this.refs.email.value = '';
           this.setState({email_state: false});
@@ -72,7 +72,7 @@ class Signin extends Component {
         <div className="row auth-container">
           <div className="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-12">
             <div className="auth">
-              <p className="auth-title">Connexion</p>
+              <p className="auth-title">Sign in</p>
               <p className="auth-title-line"></p>
               <div className="panel panel-default">
                 <div className="panel-body">
@@ -89,10 +89,10 @@ class Signin extends Component {
                     </div>
                     {
                       this.state.email_state &&
-                      <p className="error-message">Ce champ est obligatoire</p>
+                      <p className="error-message">This field is required</p>
                     }
                     <div className="form-group">
-                      <label htmlFor="password">Mot de passe</label>
+                      <label htmlFor="password">Password</label>
                       <input 
                         type="password" 
                         className={'form-control ' + (this.state.password_state ? 'error-input' : '')}
@@ -103,12 +103,12 @@ class Signin extends Component {
                     </div>
                     {
                       this.state.password_state &&
-                      <p className="error-message">Ce champ est obligatoire</p>
+                      <p className="error-message">This field is required</p>
                     }
                     <p className="forgottenPasswordLink">
-                      <a>Mot de passe oublié</a>
+                      <a>Forgot password</a>
                     </p>
-                    <button type="submit" className="btn btn-success btn-block">Soumettre</button>
+                    <button type="submit" className="btn btn-success btn-block">Submit</button>
                   </form>
                 </div>
               </div>

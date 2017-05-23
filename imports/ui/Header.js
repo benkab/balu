@@ -2,7 +2,6 @@ import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import Navigation from './Navigation';
 import Menu from './Menu';
-import Notification from './Notification';
 import { connect } from 'react-redux';
 
 class Header extends Component {
@@ -11,10 +10,6 @@ class Header extends Component {
     return (
       <div>
         <Navigation />
-        {
-          this.props.notificationIsDiplayed.notificationIsDiplayed &&
-          <Notification />
-        }
         {
           this.props.menuIsDiplayed.menuIsDiplayed &&
           <Menu />
@@ -26,8 +21,7 @@ class Header extends Component {
 
 function mapStateToProps(state) {
   return {
-    menuIsDiplayed :state.menuReducer.menuIsDiplayed,
-    notificationIsDiplayed: state.notificationReducer.notificationIsDiplayed
+    menuIsDiplayed :state.menuReducer.menuIsDiplayed
   }
 }
 

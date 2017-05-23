@@ -8,9 +8,7 @@ import Icon from 'react-ionicons';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { toggleMenuState } from './../store/actions/menuActions';
-import { toggleNotificationState } from './../store/actions/notificationActions';
 import { Session } from 'meteor/session';
-import Notifications from './../api/Notification';
 import Spinner from 'react-spinner-material';
 
 class Navigation extends TrackerReact(Component) {
@@ -38,22 +36,20 @@ class Navigation extends TrackerReact(Component) {
     browserHistory.push('/profile')
   }
 
+  navigateToHome(event){
+    event.preventDefault();
+    browserHistory.push('/home')
+  }
+
   render() {
   	return (
   	  <div className="row navigation">
           <div className="handleNotifications">
-            <ul className="pull-left left-menu">
-              <li onClick={this.toggleNotification.bind(this)}>
-                <a>
-                  <Icon icon="ion-ios-bell" fontSize="20px" color="#EBB06D"/>
-                </a>
-              </li>
-              <li>
-                <a>
-                  <Icon icon="ion-android-chat" fontSize="20px" color="#ffffff"/>
-                </a>
-              </li>
-            </ul>
+            <a onClick={this.navigateToHome.bind(this)} className="logoLink">
+              <b>
+                <span>Park</span>Smart
+              </b>
+            </a>
           </div>
           <ul className="pull-right right-menu">
             <li className="names" onClick={this.navigationToProfile.bind(this)}>
@@ -79,8 +75,7 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
-    toggleMenuState: toggleMenuState,
-    toggleNotificationState: toggleNotificationState
+    toggleMenuState: toggleMenuState
   }, dispatch)
 }
 
